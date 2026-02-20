@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Stack;
 
 public class PalindromeCheckerApp {
 
@@ -8,6 +9,7 @@ public class PalindromeCheckerApp {
         Usecase2();
         Usecase3();
         Usecase4();
+        Usecase5();
     }
 
     static void Usecase1() {
@@ -90,5 +92,38 @@ public class PalindromeCheckerApp {
 
         System.out.println("--------------------------------------");
     }    
+    static void Usecase5() {
+
+        String input = "refer";
+
+        Stack<Character> stack = new Stack<>();
+
+        // Push characters into stack
+        for (int i = 0; i < input.length(); i++) {
+            stack.push(input.charAt(i));
+        }
+
+        boolean isPalindrome = true;
+
+        // Pop and compare
+        for (int i = 0; i < input.length(); i++) {
+
+            char popped = stack.pop();
+
+            if (input.charAt(i) != popped) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        // Print result
+        if (isPalindrome) {
+            System.out.println("UC5 Result: \"" + input + "\" is a Palindrome (Stack Method)");
+        } else {
+            System.out.println("UC5 Result: \"" + input + "\" is NOT a Palindrome (Stack Method)");
+        }
+
+        System.out.println("--------------------------------------");
+    }
 
 }

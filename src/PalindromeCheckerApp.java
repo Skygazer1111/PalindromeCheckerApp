@@ -33,6 +33,7 @@ public class PalindromeCheckerApp {
         Usecase8();
         Usecase9();
         Usecase10();
+        Usecase11();
     }
 
     static void Usecase1() {
@@ -302,7 +303,7 @@ static void Usecase9() {
         // Recursive Call
         return check(s, start + 1, end - 1);
     }
-     static void Usecase10() {
+    static void Usecase10() {
 
         String input = "A man a plan a canal Panama";
 
@@ -326,6 +327,37 @@ static void Usecase9() {
         System.out.println("Is Palindrome? : " + isPalindrome);
         System.out.println("--------------------------------------");
     }
+    static void Usecase11() {
+
+        String input = "racecar";
+
+        PalindromeService service = new PalindromeService();
+        boolean result = service.checkPalindrome(input);
+
+        System.out.println("UC11 Input: " + input);
+        System.out.println("Is Palindrome? : " + result);
+        System.out.println("--------------------------------------");
+    }
+    static class PalindromeService {
+
+    public boolean checkPalindrome(String input) {
+
+        int start = 0;
+        int end = input.length() - 1;
+
+        while (start < end) {
+
+            if (input.charAt(start) != input.charAt(end))
+                return false;
+
+            start++;
+            end--;
+        }
+
+        return true;
+    }
     
+
+}
 
 }

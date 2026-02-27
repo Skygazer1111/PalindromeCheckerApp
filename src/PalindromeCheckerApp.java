@@ -31,6 +31,7 @@ public class PalindromeCheckerApp {
         Usecase6();
         Usecase7();
         Usecase8();
+        Usecase9();
     }
 
     static void Usecase1() {
@@ -275,6 +276,31 @@ public class PalindromeCheckerApp {
 
     System.out.println("--------------------------------------");
 }
+static void Usecase9() {
+
+        String input = "madam";
+
+        boolean result = check(input, 0, input.length() - 1);
+
+        System.out.println("UC9 Input: " + input);
+        System.out.println("Is Palindrome? : " + result);
+        System.out.println("--------------------------------------");
+    }
+
+    // Recursive Method
+    private static boolean check(String s, int start, int end) {
+
+        // Base Condition
+        if (start >= end)
+            return true;
+
+        // If mismatch
+        if (s.charAt(start) != s.charAt(end))
+            return false;
+
+        // Recursive Call
+        return check(s, start + 1, end - 1);
+    }
     
 
 }
